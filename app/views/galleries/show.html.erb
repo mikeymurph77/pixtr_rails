@@ -1,16 +1,24 @@
 <h2><%= @gallery.name %></h2>
+
+<div>
+	<%= link_to "Edit this gallery", [:edit, @gallery] %>
+	<%= link_to "Delete gallery", @gallery, method: :delete %>
+</div>
+
 <p><%= @gallery.description %></p>
 
-<% @gallery.images.each do |image| %>
-	<%= image_tag image.url %>
-	<%= link_to "Edit this image", [:edit, @gallery, image] %>
-	<%= link_to "Delete image", [@gallery, image], method: :delete %>
-<% end %>
-
-<%= link_to "Edit this gallery", [:edit, @gallery] %>
-<%= link_to "Delete gallery", @gallery, method: :delete %>
 <%= link_to "Add an image", [:new, @gallery, :image] %>
 
+<% @gallery.images.each do |image| %>
+	<div>
+		<%= image_tag image.url %>
+	</div>
 
+		<%= link_to "Edit this image", [:edit, @gallery, image] %>
+		<%= link_to "Delete image", [@gallery, image], method: :delete %>
 
-<%= link_to "HOME", "/" %>
+<% end %>
+
+<div>	
+<%= link_to "GO HOME", "/" %>
+</div>
