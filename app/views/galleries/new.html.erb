@@ -1,13 +1,5 @@
 <%= form_for @gallery do |form| %>
-
-	<% if @gallery.errors.any? %>
-	<h2>This form contains <%= pluralize @gallery.errors.count, "error" %>:</h2>
-		<ul>
-			<% @gallery.errors.full_messages.each do |message| %>
-				<li><%= message %></li>
-			<% end %>
-		</ul>
-	<% end %>
+	<%= render "error_messages" %>
 
 	<div>
 		<%= form.label :name %>
