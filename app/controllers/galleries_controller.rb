@@ -12,11 +12,10 @@ class GalleriesController < ApplicationController
 	end
 
 	def create
-		gallery = Gallery.new(gallery_params)
-		if gallery.save
-			redirect_to "/galleries/#{gallery.id}"
+		@gallery = Gallery.new(gallery_params)
+		if @gallery.save
+			redirect_to @gallery
 		else
-			@gallery = gallery
 			render :new
 		end
 	end
