@@ -1,4 +1,5 @@
 <h2><%= @gallery.name %></h2>
+<p>Proudly owned by <%= @gallery.user.email %></p>
 
 <div>
 	<%= link_to "Edit this gallery", [:edit, @gallery] %>
