@@ -2,8 +2,10 @@
 <p>Proudly owned by <%= @gallery.user.email %></p>
 
 <div>
+	<% if current_user.id == @gallery.user_id %>
 	<%= link_to "Edit this gallery", [:edit, @gallery] %>
 	<%= link_to "Delete gallery", @gallery, method: :delete %>
+	<% end %>
 </div>
 
 <p><%= @gallery.description %></p>
@@ -22,4 +24,4 @@
 
 <div>	
 <%= link_to "GO HOME", root_path %>
-</div>
+</div> -->
