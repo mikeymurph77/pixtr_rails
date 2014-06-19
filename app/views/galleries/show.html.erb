@@ -16,7 +16,7 @@
 	<div>
 		<%= image_tag image.url %>
 	</div>
-
+		Created <%= time_ago_in_words image.created_at %> ago
 		<%= link_to "Edit this image", [:edit, @gallery, image] %>
 		<%= link_to "Delete image", [@gallery, image], method: :delete %>
 
