@@ -1,1 +1,17 @@
 <%= image_tag @image.url %>
+
+<%= form_for Comment.new do |form| %>
+	<%= form.label :body, "comment" %>
+	<%= form.text_area :body %>
+	<%= form.hidden_field :image_id, :value => @image.id %>
+	<%= form.submit "Comment" %>
+<% end %>
+
+<% @image.comments.each do |comment| %>
+  <p>
+  <%= comment.body %>
+  <%= comment.user_id %>
+  <%= comment.created_at %>
+  </p>
+<% end %>
+
