@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :galleries, only: [:show, :new, :create, :edit, :update, :destroy] do
     resources :images, only: [:new, :create, :destroy]
   end
-  resources :images, only: [:update, :edit]
+  resources :images, only: [:show, :update, :edit]
 end

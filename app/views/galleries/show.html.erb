@@ -14,7 +14,9 @@
 
 <% @gallery.images.each do |image| %>
 	<div>
-		<%= image_tag image.url %>
+		<%= link_to image do %>
+			<%= image_tag image.url%>
+		<% end %>
 	</div>
 		Created <%= time_ago_in_words image.created_at %> ago
 		<%= link_to "Edit this image", [:edit, image] %>
