@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   root to:"galleries#index"
   resources :galleries, only: [:show, :new, :create, :edit, :update, :destroy] do
-    resources :images, only: [:new, :create, :edit, :update, :destroy]
+    resources :images, only: [:new, :create, :destroy]
   end
+  resources :images, only: [:update, :edit]
 end
