@@ -1,5 +1,23 @@
+
 <ul>
 	<% @groups.each do |group| %>
-		<li><%= group.name %> // <%= group.description %></li>
+		<% if ! current_user.member?(group) %>
+			<li>
+				<%= render group %>
+				<%= form_for [group, @group_membership] do |form| %>
+					<%= form.submit "Join this group" %>
+				<% end %>
+			</li>
+		<% end %>
+
+	<% end %>
+</ul>
+
+<h2>Your memberships</h2>
+<ul>
+	<% @my_groups.each do |group| %>
+		<li>
+			<%= render group %>
+		</li>
 	<% end %>
 </ul>
