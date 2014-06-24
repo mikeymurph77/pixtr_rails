@@ -5,6 +5,7 @@
     <%= form_for @image do |form| %>
       <h3><%= form.label "Select the groups this image belongs to" %></h3>
       <%= form.collection_check_boxes :group_ids, @groups, :id, :name %>
+      <%= form.submit "Add image to groups" %>
     <% end %>
   </div>
 <% end %>

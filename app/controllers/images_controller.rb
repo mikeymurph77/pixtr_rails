@@ -48,7 +48,9 @@ class ImagesController < ApplicationController
 
   def image_params
     params.
-      require(:image).
-      permit(:url)
+      require(:image).permit(
+        :url,
+        group_ids: []
+        )
   end
 end
