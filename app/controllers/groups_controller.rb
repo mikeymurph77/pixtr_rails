@@ -20,8 +20,12 @@ class GroupsController < ApplicationController
 	end
 
 	def index
-		@groups = Group.all
+		all_groups = Group.all
 		@my_groups = current_user.groups
+		@other_groups = []
+		all_groups.each do |group|
+			@other_groups << group unless @my_groups.include?(group)
+		end
 	end
 
 	def show
