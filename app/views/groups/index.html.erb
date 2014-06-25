@@ -1,22 +1,9 @@
-
+<h2>Your memberships:</h2>
 <ul>
-	<% @groups.each do |group| %>
-		<% if ! current_user.member?(group) %>
-			<li>
-				<%= render group %>
-				<%= button_to "Join this group", [group, :group_membership] %>
-			</li>
-		<% end %>
-
-	<% end %>
+	<%= render @my_groups %>
 </ul>
 
-<h2>Your memberships</h2>
+<h2>Join these groups!</h2>
 <ul>
-	<% @my_groups.each do |group| %>
-		<li>
-			<%= render group %>
-			<%= button_to "Leave this group", [group, :group_membership], method: :delete %>
-		</li>
-	<% end %>
+	<%= render @groups %>
 </ul>
