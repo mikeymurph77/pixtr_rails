@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
       redirect_to @image
     else
       @comments = @image.comments.recent
+      @groups = Group.all
       render "images/show"
     end
   end
