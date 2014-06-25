@@ -15,7 +15,7 @@
 
 <% if signed_in? %>
 	<%= button_to "Sign out", :session, method: :delete %>
-	<%= link_to "Create a new group", [:new, :group] %>
+	<h3><%= link_to "Create a new group", [:new, :group] %></h3>
 <% else %>
 	<% unless controller_name == "users" && action_name == "new" %>
 		<%= link_to "Sign up", [:new, :user] %>

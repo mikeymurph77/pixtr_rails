@@ -1,11 +1,17 @@
-<%= image_tag @image.url %>
+<div>
+  <%= image_tag @image.url %>
+</div>
 
 <% if current_user.id == @image.gallery.user_id %>
   <div>
     <%= form_for @image do |form| %>
       <h3><%= form.label "Select the groups this image belongs to" %></h3>
-      <%= form.collection_check_boxes :group_ids, @groups, :id, :name %>
-      <%= form.submit "Add image to groups" %>
+      <div>
+        <%= form.collection_check_boxes :group_ids, @groups, :id, :name %>
+      </div>
+      <div>
+        <%= form.submit "Add image to groups" %>
+      </div>
     <% end %>
   </div>
 <% end %>

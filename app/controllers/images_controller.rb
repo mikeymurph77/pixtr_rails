@@ -30,7 +30,7 @@ class ImagesController < ApplicationController
     @image = current_user.images.find(params[:id])
 
     if @image.update(image_params)
-      redirect_to @image.gallery
+      redirect_to @image
     else
       render :edit
     end
