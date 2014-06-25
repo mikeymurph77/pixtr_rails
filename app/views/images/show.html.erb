@@ -2,6 +2,14 @@
   <%= image_tag @image.url %>
 </div>
 
+<div>
+  <% if current_user.like?(@image) %>
+    <%= button_to "Un-like this image", [@image, :like], method: :delete %>
+  <% else %>
+    <%= button_to "Like this image", [@image, :like] %>
+  <% end %>
+</div>
+
 <% if current_user.id == @image.gallery.user_id %>
   <div>
     <%= form_for @image do |form| %>

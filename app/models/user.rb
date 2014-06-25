@@ -5,11 +5,18 @@ class User < ActiveRecord::Base
 	has_many :group_memberships
 	has_many :groups, through: :group_memberships
 
+	has_many :likes
+	has_many :liked_images, through: :likes, source: :image
+
 	validates :email, presence: true, uniqueness: true
 	validates :password_digest, presence: true
 
 	def member?(group)
 		group_ids.include?(group.id)
+	end
+
+	def like?(image)
+		liked_images.include?(image)
 	end
 
 	def join(group)
@@ -18,6 +25,10 @@ class User < ActiveRecord::Base
 
 	def leave(group)
 		groups.destroy(group)		
+	end
+
+	def like(image)
+		liked_images << image
 	end
 
 end
