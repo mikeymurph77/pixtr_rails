@@ -4,9 +4,7 @@
 		<% if ! current_user.member?(group) %>
 			<li>
 				<%= render group %>
-				<%= form_for [group, @group_membership] do |form| %>
-					<%= form.submit "Join this group" %>
-				<% end %>
+				<%= button_to "Join this group", [group, :group_membership] %>
 			</li>
 		<% end %>
 
