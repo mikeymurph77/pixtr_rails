@@ -7,6 +7,9 @@ class Image < ActiveRecord::Base
 
   has_many :likes
 
+  has_many :tag_lists
+  has_many :tags, through: :tag_lists
+
   validates :url, presence: true
   validates :gallery, presence: true
 end

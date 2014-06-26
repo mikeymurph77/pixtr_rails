@@ -5,7 +5,14 @@
 <div>
   <%= link_to "Create a tag", [:new, :tag] %>
 </div>
-
+<div>
+  <%= form_for @image do |form| %>
+    <div><h3><%= form.label "Select a tag for this image" %></h3></div>
+    <%= form.collection_check_boxes :tag_lists, @tags, :id, :tag_name %>
+    <div><%= form.submit "Add these tags" %></div>
+  <% end %>
+</div>
+<br>
 <div>
   This many people like this image: <%= @image.likes.count %>
   <% if ! current_user.likes?(@image) %>

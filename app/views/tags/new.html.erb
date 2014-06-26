@@ -1,6 +1,6 @@
 <h2>Add your tag!</h2>
 
-<%= form_for @tag do |form|%>
+<%= form_for @tag do |form| %>
 	<%= render "error_messages", target: @tag %>
 	<%= form.label :tag_name, "Tag" %>
 	<%= form.text_field :tag_name %>
