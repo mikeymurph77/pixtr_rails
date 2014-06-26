@@ -1,0 +1,7 @@
+<h2>Add your tag!</h2>
+
+<%= form_for @tag do |form|%>
+	<%= form.label :tag, "Tag" %>
+	<%= form.text_field :tag %>
+	<%= form.submit "Submit" %>
+<% end %>

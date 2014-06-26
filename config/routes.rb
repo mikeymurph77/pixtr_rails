@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   	resource :group_membership, only: [:create, :destroy]
   end
 
+  resources :tags, only: [:new, :create]
+
   root to: "galleries#index"
 
   resources :galleries, only: [:show, :new, :create, :edit, :update, :destroy] do

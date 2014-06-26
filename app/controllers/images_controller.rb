@@ -24,6 +24,7 @@ class ImagesController < ApplicationController
 
   def edit
     @image = current_user.images.find(params[:id])
+    
   end
 
   def update
