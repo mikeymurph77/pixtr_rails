@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 		group_ids.include?(group.id)
 	end
 
-	def like?(image)
+	def likes?(image)
 		liked_images.include?(image)
 	end
 
@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
 
 	def like(image)
 		liked_images << image
+	end
+
+	def unlike(image)
+		liked_images.destroy(image)
 	end
 
 end
