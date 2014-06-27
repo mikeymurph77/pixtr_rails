@@ -52,7 +52,9 @@ class ImagesController < ApplicationController
     params.
       require(:image).permit(
         :url,
-        group_ids: []
+        :tag_lists,
+        group_ids: [],
+        tag_lists: []
         )
   end
 end

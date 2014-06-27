@@ -12,4 +12,6 @@ class Image < ActiveRecord::Base
 
   validates :url, presence: true
   validates :gallery, presence: true
+
+  
 end

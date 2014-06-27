@@ -1,12 +1,12 @@
 class CreateTagLists < ActiveRecord::Migration
   def change
     create_table :tag_lists do |t|
-      t.belongs_to :tag, index: true, null: false
-      t.belongs_to :image, index: true, null: false
+      t.integer :image_id, null: false
+      t.integer :tag_id, null: false
 
       t.timestamps null: false
     end
 
-    add_index :tag_lists, [:tag_id, :image_id], unique: true 
+    add_index :tag_lists, [:image_id, :tag_id], unique: true 
   end
 end

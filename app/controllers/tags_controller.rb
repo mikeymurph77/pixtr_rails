@@ -8,6 +8,11 @@ class TagsController < ApplicationController
 		@tag = Tag.new(tag_params)
 
 		if @tag.save
+			GroupMembership.join(
+				tag_id: @tag.id,
+				image_id: @image.id
+			)
+
 			redirect_to [:new, :tag]
 		else
 			@tags = Tag.all

@@ -12,10 +12,11 @@ Rails.application.routes.draw do
     resources :images, only: [:new, :create, :destroy]
   end
 
-  resources :tags, only: [:new, :create]
-
   resources :images, only: [:show, :edit, :update] do
     resources :comments, only: [:create]
     resource :like, only: [:create, :destroy]
+    resources :tags, only: [:create]
   end
+
+  resource :tag, only: [:new]
 end
